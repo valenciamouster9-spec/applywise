@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ApplyWise</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>ApplyWise</h1>
+    <p>Track your job applications, see how your search is going, and match your CV to a job ad.</p>
+  </header>
+
+  <nav>
+    <button class="tab active" data-tab="tracker">Tracker</button>
+    <button class="tab" data-tab="dashboard">Dashboard</button>
+    <button class="tab" data-tab="assistant">Assistant</button>
+  </nav>
+
+  <main>
+    <section id="tracker" class="panel">
+      <form id="application-form">
+        <input id="company" placeholder="Company" required>
+        <input id="role" placeholder="Role" required>
+        <input id="date" type="date" required>
+        <select id="status">
+          <option value="applied">Applied</option>
+          <option value="interview">Interview</option>
+          <option value="offer">Offer</option>
+          <option value="rejected">Rejected</option>
+        </select>
+        <button type="submit">Add application</button>
+      </form>
+
+      <table>
+        <thead>
+          <tr><th>Company</th><th>Role</th><th>Date</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="applications-body"></tbody>
+      </table>
+      <p id="empty-message">No applications yet. Add your first one above.</p>
+    </section>
+
+    <section id="dashboard" class="panel hidden">
+      <div id="stat-cards" class="cards"></div>
+      <h2>Applications by status</h2>
+      <div id="status-chart"></div>
+      <h2>Applications per week</h2>
+      <div id="week-chart"></div>
+    </section>
+
+    <section id="assistant" class="panel hidden">
+      <label for="cv">Your CV (paste the text)</label>
+      <textarea id="cv" rows="6"></textarea>
+
+      <label for="job-ad">Job ad (paste the text)</label>
+      <textarea id="job-ad" rows="6"></textarea>
+
+      <button id="analyze-button" type="button">Match my CV to this job</button>
+      <div id="match-result"></div>
+
+      <h2>Cover letter</h2>
+      <form id="letter-form">
+        <input id="letter-name" placeholder="Your name" required>
+        <input id="letter-company" placeholder="Company" required>
+        <input id="letter-role" placeholder="Role" required>
+        <textarea id="letter-summary" rows="2" placeholder="One sentence about you (optional)"></textarea>
+        <button type="submit">Write cover letter</button>
+      </form>
+      <textarea id="letter-output" rows="12" readonly></textarea>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+
